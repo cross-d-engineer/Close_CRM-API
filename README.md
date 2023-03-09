@@ -52,7 +52,7 @@ That query was populated with the values captured including the <span style="col
 <img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/the_median.png">
 </br>
 <p>There are two local modules created to work with this script “data.py” which holds and the query structures used for interacting with the API and <b>“prep_csv.py”</b> which is responsible for processing the data described above to be written to csv.</p>
-<p> At the end of the script two files should be written to your repository. One of file would be named "Lead_Error_Logs.csv" which provides all logs captured whilst running the script. The other would be the final output file  containing the information requested and would be named "Project_Output.csv" within the local repository.
+<p> At the end of the script two files should be written to your repository. One of the files would be named "Lead_Error_Logs.csv" which provides all logs captured whilst running the script. The other would be the final output containing the information requested and would be named "Project_Output.csv" within the local repository.
 </p>
 <pre>
 <img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/output.jpg", alt='final_output_sample'>
