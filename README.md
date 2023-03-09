@@ -22,27 +22,39 @@
     <li>Filename</li>
     <li>Filter Start and End dates as well as records limit.</li>
 </ol>
+<h2>How the Script Works</h2>
 <p>
 During the execution of the script, the console would show <b>Validation errors</b> for invalid data that was caught while importing the lead data into the organization. Validation of data is handled when a POST is done to <b>Close.com API</b> which returns an error if invalid data is provided.
 </br>
-</br>
-When invalid data is received the <b>Close API Client</b> returns an error message which halts the execution of the script. To bypass the error report, the "<span style="color: rgb(255, 174, 0);">try</span>" and “<span style="color: rgb(255, 174, 0);">except</span>” block is used to continue the execution.
-</p>
 <img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/validation_error_sample.png">
 </br>
-<h2>How the Script Works</h2>
+When invalid data is received the <b>Close API Client</b> returns an error message which halts the execution of the script. To bypass the error report, the "<span style="color: rgb(255, 174, 0);">try</span>" and “<span style="color: rgb(255, 174, 0);">except</span>” block is used to continue the execution.
+<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/try_except_sample.png">
+</p>
+</br>
 <p>To find the leads within the given range, in the prompt mentioned above, a JSON query was created using the Close Visual Query Builder to determine the filter structure. 
 That query was populated with the values captured including the <span style="color: rgb(0, 255, 157);">“_limit: number”</span> field which controls the number of records returned as well as the <span style="color: rgb(0, 255, 157);">“_field:__”</span> field 
 which provides more of the data from the object queried. 
 </br>
+<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/validation_error_sample.png">
 </br>
 To find the leads within the given range, in the prompt mentioned above, a JSON query was created using the Close Visual Query Builder to determine the filter structure. 
 That query was populated with the values captured including the <span style="color: rgb(0, 255, 157);">“_limit: number”</span> field which controls the number of records returned as well as the <span style="color: rgb(0, 255, 157);">“_field:__”</span> field which provides more of the data from the object queried.</p>
+<ul>
+  <li><img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/after_filter.png" alt="after_filter"></li>
+  <li><img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/before_filter.png" alt="before_filter"></li>
+  <li><img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/limit_filter.png" alt="limit_filter"></li>
+</ul>
 </br>
 <p>Using the filtered data response, the leads are then segmented using a series of loops that iterate through the response to extract the data and then place them in python dictionaries. </p>
 </br>
 <p>To determine and segment the leads by State the script creates a dictionary that maps the values to keys labeled as the states and nests the corresponding values within ensuring there are no conflicts or overwrites by using conditional logic to determine which states have been already created as well as the lead with the most revenue within said state. </p>
+<ul>
+  <li><img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/data_segmentation.png"></li>
+  <li><img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/data_segmentation2.png"</li>
+</ul>
 </br>
 <p>The median is found using a conditional to determine whether the total list of numbers are odd or even. If odd list of numbers would be sorted and divided by 2 to determine its location within the list. If even the middle 2 numbers of the list were added and then divided by 2.</p>
+<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/the_median.png">
 </br>
 <p>There are two local modules created to work with this script “data.py” which holds and the query structures used for interacting with the API and <b>“prep_csv.py”</b> which is responsible for processing the data described above to be written to csv.</p>
