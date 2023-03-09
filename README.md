@@ -28,7 +28,7 @@ During the execution of the script, the console would show <b>Validation errors<
 </br>
 When invalid data is received the <b>Close API Client</b> returns an error message which halts the execution of the script. To bypass the error report, the "<span style="color: rgb(255, 174, 0);">try</span>" and “<span style="color: rgb(255, 174, 0);">except</span>” block is used to continue the execution.
 </p>
-<img></img>
+<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/validation_error_sample.png">
 </br>
 <h2>How the Script Works</h2>
 <p>To find the leads within the given range, in the prompt mentioned above, a JSON query was created using the Close Visual Query Builder to determine the filter structure. 
