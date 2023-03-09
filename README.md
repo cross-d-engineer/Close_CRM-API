@@ -33,11 +33,6 @@ When invalid data is received the <b>Close API Client</b> returns an error messa
 <img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/try_except_sample.png">
 </pre>
 </p>
-<p>To find the leads within the given range, in the prompt mentioned above, a JSON query was created using the Close Visual Query Builder to determine the filter structure. 
-That query was populated with the values captured including the <span style="color: rgb(0, 255, 157);">“_limit: number”</span> field which controls the number of records returned as well as the <span style="color: rgb(0, 255, 157);">“_field:__”</span> field 
-which provides more of the data from the object queried. 
-<pre>
-<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/validation_error_sample.png">
 </pre>
 To find the leads within the given range, in the prompt mentioned above, a JSON query was created using the Close Visual Query Builder to determine the filter structure. 
 That query was populated with the values captured including the <span style="color: rgb(0, 255, 157);">“_limit: number”</span> field which controls the number of records returned as well as the <span style="color: rgb(0, 255, 157);">“_field:__”</span> field which provides more of the data from the object queried.</p>
@@ -57,3 +52,8 @@ That query was populated with the values captured including the <span style="col
 <img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/the_median.png">
 </br>
 <p>There are two local modules created to work with this script “data.py” which holds and the query structures used for interacting with the API and <b>“prep_csv.py”</b> which is responsible for processing the data described above to be written to csv.</p>
+<p> At the end of the script two files should be written to your repository. One of file would be named "Lead_Error_Logs.csv" which provides all logs captured whilst running the script. The other would be the final output file  containing the information requested and would be named "Project_Output.csv" within the local repository.
+</p>
+<pre>
+<img src="https://github.com/cross-d-engineer/Close_Take_Home_Assignment/blob/main/src_imgs/output.jpg", alt='final_output_sample'>
+</pre>
