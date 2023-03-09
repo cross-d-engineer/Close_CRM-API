@@ -17,6 +17,8 @@ passed_leads = {}
 cf_founder = ""
 cf_revenue = ""
 
+error_log = []
+
 ERROR_COUNTER = 0
 num_of_created_leads = 0
 
@@ -68,13 +70,13 @@ for index in range(len(df)):
             lead = API.post('lead', data=lead_data)
             passed_leads[companies] = lead['id']  # dictionary used to evaluate if leads already exist
             num_of_created_leads = len(lead)
-        except ValidationError as e:
+        except ValidationError as e:  # specify expected error and steps to take after occurrence
             ERROR_COUNTER += 1
-            print(f"Number of invalid data detected: {ERROR_COUNTER}")
-            print(f"Validation: {e}")
+            error_log.append(e)
             continue
         except Exception as e:
-            print(f"API Error: {e}")
+            ERROR_COUNTER += 1
+            error_log.append(e)
             continue
     else:
         contact_data = data.create_contact(passed_leads, companies, contacts, contact_number, contact_email)
@@ -82,20 +84,23 @@ for index in range(len(df)):
             API.post('contact', data=contact_data)
         except ValidationError as e:
             ERROR_COUNTER += 1
-            print(f"Number of invalid data detected: {ERROR_COUNTER}")
-            print(f"Validation: {e}")
+            error_log.append(e)
             continue
         except Exception as e:
-            print(f"API Error: {e}")
+            error_log.append(e)
             continue
 
+print(f"Number of invalid data detected: {ERROR_COUNTER}")
 print(f"Number of Leads created successfully via API: {num_of_created_leads}")
+error_writer = pd.DataFrame({"Errors_Logged": error_log})
+error_writer.to_csv("Lead_Error_Logs.csv", sep=",", header=True)  # writes errors to a csv file
+print("Log file created @ Lead_Error_Logs.csv")  # informs the user log file created.
 # finds all leads that were founded within a date range specified when running the script
 
 
 # stores filter dates range to be sorted by
-after_date = input("Please enter the date for start of filter in (YYYY/MM/DD): ")
-before_date = input("Please enter the date for end of filter in (YYYY/MM/DD): ")
+after_date = input("Please enter the date for start of filter in (YYYY-MM-DD): ")
+before_date = input("Please enter the date for end of filter in (YYYY-MM-DD): ")
 
 
 # arguments mapped to avoid conflicts
